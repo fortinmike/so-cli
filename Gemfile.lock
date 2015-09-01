@@ -1,0 +1,24 @@
+PATH
+  remote: .
+  specs:
+    so-cli (0.1.0)
+      claide (~> 0.8, >= 0.8.0)
+      colored (~> 1.2)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    claide (0.9.1)
+    colored (1.2)
+    rake (10.4.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.10)
+  so-cli!
+  rake (~> 10.0)
+
+BUNDLED WITH
+   1.10.6
