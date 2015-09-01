@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
-require "so/cli"
+require 'so-cli'
+require 'so-cli/commands/commands'
 
-puts "I am alive!"
+SoCli::Command.run(ARGV)

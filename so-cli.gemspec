@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'so/cli/version'
+require 'so-cli/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "so-cli"
-  spec.version       = So::Cli::VERSION
+  spec.version       = SoCli::VERSION
   spec.authors       = ["Michaël Fortin"]
   spec.email         = ["fortinmike@irradiated.net"]
 
