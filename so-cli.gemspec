@@ -1,7 +1,7 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'so-cli/version'
+require 'so-cli/info'
 
 Gem::Specification.new do |spec|
   spec.name          = "so-cli"
@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Michaël Fortin"]
   spec.email         = ["fortinmike@irradiated.net"]
 
-  spec.summary       = %q{A modular command-line tool.}
-  spec.description   = %q{so-cli (especially combined with a front-end) is to Alfred what maid is to Hazel.}
+  spec.summary       = SoCli::SUMMARY
+  spec.description   = SoCli::DESCRIPTION
   spec.homepage      = "https://github.com/fortinmike/so-cli"
   
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
