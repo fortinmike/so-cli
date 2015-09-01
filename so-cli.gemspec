@@ -5,7 +5,7 @@ require 'so/cli/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "so-cli"
-  spec.version       = Do::Cli::VERSION
+  spec.version       = So::Cli::VERSION
   spec.authors       = ["Michaël Fortin"]
   spec.email         = ["fortinmike@irradiated.net"]
 

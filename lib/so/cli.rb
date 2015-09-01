@@ -1,6 +1,6 @@
 require "so/cli/version"
 
-module Do
+module So
   module Cli
     # Your code goes here...
   end
