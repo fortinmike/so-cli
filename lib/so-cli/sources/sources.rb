@@ -22,9 +22,5 @@ module SoCli
       dummy_source = Source.new(url, path)
       return [dummy_source]
     end
-    
-    def update
-      puts "TODO: Pull all source repos"
-    end
   end
 end

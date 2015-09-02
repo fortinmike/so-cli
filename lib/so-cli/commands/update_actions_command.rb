@@ -6,8 +6,7 @@ module SoCli
     self.summary = "Update all actions by pulling all sources."
     
     def run
-      @sources.update
-      @sources.all.each { |s| puts "TODO: Pull source #{s.url}" }
+      @sources.all.each { |s| s.update }
     end
   end
 end

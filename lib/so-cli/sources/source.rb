@@ -10,6 +10,10 @@ module SoCli
       @path = path
     end
     
+    def update
+      puts "TODO: Pull changes from #{@url} into #{@path}"
+    end
+    
     def actions
       puts "TODO: Return all actions in the source here"
     end
