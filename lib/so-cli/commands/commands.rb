@@ -1,2 +1,2 @@
-require_relative 'command.rb'
-require_relative 'add_source_command.rb'
+require_relative 'command'
+require_relative 'add_source_command'
