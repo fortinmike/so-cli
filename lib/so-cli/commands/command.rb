@@ -18,7 +18,7 @@ module SoCli
     end
     
     def initialize_output(argv)
-      @output = Outputs.output_named(argv.option('output'))
+      @output = Outputs.output_named(argv.flag?('output'))
       @output = $stdout.isatty ? SoCli::ShellOutput.new : SoCli::AlfredXmlOutput.new unless @output
     end
   end

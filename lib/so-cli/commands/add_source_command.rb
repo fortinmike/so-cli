@@ -1,4 +1,5 @@
 require_relative 'command'
+require 'so-cli/sources/sources'
 
 module SoCli
   class AddSourceCommand < Command
@@ -6,7 +7,7 @@ module SoCli
     self.summary = "Add an action source."
     
     def self.options
-      [['<repo_url>', 'The url of a repository containing so-cli actions at its root.']].concat(super)
+      [['<repo_url>', 'The URL of a repository containing actions at its root.']].concat(super)
     end
     
     def initialize(argv)
@@ -20,7 +21,7 @@ module SoCli
     end
     
     def run
-      puts "Adding source #{@url}"
+      Sources.add(@url)
     end
   end
 end
