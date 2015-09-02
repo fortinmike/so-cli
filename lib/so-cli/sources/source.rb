@@ -9,5 +9,9 @@ module SoCli
       @url = url
       @path = path
     end
+    
+    def actions
+      puts "TODO: Return all actions in the source here"
+    end
   end
 end

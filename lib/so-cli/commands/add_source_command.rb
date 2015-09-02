@@ -1,5 +1,4 @@
 require_relative 'command'
-require 'so-cli/sources/sources'
 
 module SoCli
   class AddSourceCommand < Command
@@ -21,7 +20,7 @@ module SoCli
     end
     
     def run
-      Sources.add(@url)
+      @sources.add(@url)
     end
   end
 end

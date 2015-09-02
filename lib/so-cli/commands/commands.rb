@@ -1,6 +1,5 @@
 require_relative 'command'
 require_relative 'add_source_command'
 require_relative 'list_sources_command'
-require_relative 'reload_actions_command'
 require_relative 'remove_source_command'
 require_relative 'update_actions_command'

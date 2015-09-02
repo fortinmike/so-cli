@@ -3,32 +3,28 @@ require 'so-cli/settings'
 
 module SoCli
   class Sources
-    def self.add(url)
-      puts "Add source #{url}"
-      # TODO: Add a source to the config
+    def initialize(sources_directory)
+      @sources_directory = sources_directory
     end
     
-    def self.remove(url)
-      puts "Remove source #{url}"
-      # TODO: Remove source from the config
+    def add(url)
+      puts "TODO: Add source #{url} to the config"
     end
     
-    def self.all
+    def remove(url)
+      puts "TODO: Remove source #{url} from the config"
+    end
+    
+    def all
+      # TODO: Implement real source listing
       url = "git@github.com:fortinmike/so-cli.git"
-      path = File.join(Settings.instance.sources_path, CGI.escape(url))
+      path = File.join(@sources_directory, CGI.escape(url))
       dummy_source = Source.new(url, path)
       return [dummy_source]
-      # TODO: List all configured sources
     end
     
-    def self.update
-      puts "Pull all source repos and reloading actions from disk"
-      # TODO: Pull all source repos and reload actions
-    end
-    
-    def self.reload
-      puts "Reload actions from disk"
-      # TODO: Reload actions from all on-disk source repos
+    def update
+      puts "TODO: Pull all source repos"
     end
   end
 end

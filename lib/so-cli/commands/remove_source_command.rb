@@ -1,5 +1,4 @@
 require_relative 'command'
-require 'so-cli/sources/sources'
 
 module SoCli
   class RemoveSourceCommand < Command
@@ -21,7 +20,7 @@ module SoCli
     end
     
     def run
-      Sources.remove(@url)
+      @sources.remove(@url)
     end
   end
 end
