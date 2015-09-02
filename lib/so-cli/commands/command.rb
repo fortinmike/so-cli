@@ -18,11 +18,8 @@ module SoCli
     end
     
     def initialize_output(argv)
-      @output = case argv.flag?('output')
-      when 'alfred-xml'; SoCli::AlfredXmlOutput.new
-      when 'shell'; SoCli::ShellOutput.new
-      else; $stdout.isatty ? SoCli::ShellOutput.new : SoCli::AlfredXmlOutput.new
-      end
+      @output = Outputs.output_named(argv.option('output'))
+      @output = $stdout.isatty ? SoCli::ShellOutput.new : SoCli::AlfredXmlOutput.new unless @output
     end
   end
 end
