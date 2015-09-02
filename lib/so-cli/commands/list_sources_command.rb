@@ -7,7 +7,7 @@ module SoCli
     self.summary = "List configured action sources."
     
     def run
-      Sources.list
+      Sources.all.each { |s| puts s.url }
     end
   end
 end

@@ -1,3 +1,6 @@
+require_relative 'source'
+require 'so-cli/settings'
+
 module SoCli
   class Sources
     def self.add(url)
@@ -10,8 +13,11 @@ module SoCli
       # TODO: Remove source from the config
     end
     
-    def self.list
-      puts "Return all configured sources, then displayed by command"
+    def self.all
+      url = "git@github.com:fortinmike/so-cli.git"
+      path = File.join(Settings.instance.sources_path, CGI.escape(url))
+      dummy_source = Source.new(url, path)
+      return [dummy_source]
       # TODO: List all configured sources
     end
     

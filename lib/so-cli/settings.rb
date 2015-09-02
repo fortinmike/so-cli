@@ -5,6 +5,11 @@ module SoCli
     include Singleton
     
     attr_accessor :verbose
-    @verbose = false
+    attr_accessor :sources_path
+    
+    def initialize
+      @verbose = false
+      @sources_path = File.expand_path("~/.so-cli/sources")
+    end
   end
 end
