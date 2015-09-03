@@ -5,7 +5,7 @@ module SoCli
     attr_accessor :url
     attr_accessor :path
     
-    def initialize(url, path)
+    def initialize(path, url)
       @url = url
       @path = path
     end
@@ -15,7 +15,7 @@ module SoCli
     end
     
     def actions
-      puts "TODO: Return all actions in the source here"
+      puts "TODO: Return all actions in the source"
     end
   end
 end

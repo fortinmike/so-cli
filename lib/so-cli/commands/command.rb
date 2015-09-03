@@ -1,6 +1,7 @@
 require 'claide'
 
 require 'so-cli/info'
+require 'so-cli/config'
 require 'so-cli/settings'
 require 'so-cli/outputs/outputs'
 require 'so-cli/sources/sources'
@@ -14,13 +15,13 @@ module SoCli
     
     def initialize(argv)
       Settings.instance.verbose |= argv.flag?('verbose') ? true : false
-      initialize_sources
+      initialize_sources(Config.new)
       initialize_output(argv)
       super
     end
     
-    def initialize_sources
-      @sources = Sources.new(Settings.instance.sources_directory)
+    def initialize_sources(config)
+      @sources = Sources.new(Settings.instance.sources_directory, config)
     end
     
     def initialize_output(argv)

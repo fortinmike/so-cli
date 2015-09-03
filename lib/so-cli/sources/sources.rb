@@ -1,26 +1,27 @@
 require_relative 'source'
-require 'so-cli/settings'
 
 module SoCli
   class Sources
-    def initialize(sources_directory)
+    def initialize(sources_directory, config)
       @sources_directory = sources_directory
+      @config = config
     end
     
-    def add(url)
-      puts "TODO: Add source #{url} to the config"
+    def add(repo_url)
+      @config.sources.push(repo_url)
+      @config.save
     end
     
-    def remove(url)
-      puts "TODO: Remove source #{url} from the config"
+    def remove(repo_url)
+      @config.sources.delete(repo_url)
+      @config.save
     end
     
     def all
-      # TODO: Implement real source listing
-      url = "git@github.com:fortinmike/so-cli.git"
-      path = File.join(@sources_directory, CGI.escape(url))
-      dummy_source = Source.new(url, path)
-      return [dummy_source]
+      @config.sources.map do |repo_url|
+        path = File.join(@sources_directory, CGI.escape(repo_url))
+        next Source.new(path, repo_url)
+      end
     end
   end
 end
