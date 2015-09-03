@@ -17,16 +17,22 @@ module SoCli
       @settings = Settings.new
       
       @settings.verbose |= argv.flag?('verbose') ? true : false
-      config = initialize_config
-      initialize_sources(config)
+      
+      first_run = !File.exist?(@settings.config_file)
+      
+      initialize_config(first_run)
+      initialize_sources(@config)
       initialize_output(argv)
+      
+      @sources.update if first_run
+      
       super
     end
     
-    def initialize_config
-      config = Config.new(@settings)
-      config.load
-      return config
+    def initialize_config(first_run)
+      @config = Config.new(@settings)
+      @config.first_run_initialization if first_run
+      @config.load
     end
     
     def initialize_sources(config)

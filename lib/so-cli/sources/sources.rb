@@ -17,6 +17,10 @@ module SoCli
       @config.save
     end
     
+    def update
+      all.each(&:update)
+    end
+    
     def all
       @config.sources.map do |repo_url|
         path = File.join(@sources_directory, CGI.escape(repo_url))

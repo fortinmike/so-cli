@@ -7,8 +7,6 @@ module SoCli
     
     def initialize(settings)
       @settings = settings
-      
-      create_config_if_nonexistent
     end
     
     def load
@@ -25,8 +23,7 @@ module SoCli
       File.write(@settings.config_file, yaml)
     end
     
-    def create_config_if_nonexistent
-      return if File.exist?(@settings.config_file)
+    def first_run_initialization
       FileUtils::mkdir_p(@settings.config_directory)
       FileUtils::mkdir_p(@settings.sources_directory)
       @sources = ["git@github.com:fortinmike/so-cli-built-in-actions.git"]
