@@ -14,7 +14,7 @@ module SoCli
     self.description = SUMMARY
     
     def initialize(argv)
-      @settings = Settings.instance
+      @settings = Settings.new
       
       @settings.verbose |= argv.flag?('verbose') ? true : false
       config = initialize_config

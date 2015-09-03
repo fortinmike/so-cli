@@ -1,9 +1,5 @@
-require 'singleton'
-
 module SoCli
   class Settings
-    include Singleton
-    
     attr_accessor :verbose
     attr_accessor :config_directory
     attr_accessor :config_file
