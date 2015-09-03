@@ -14,14 +14,23 @@ module SoCli
     self.description = SUMMARY
     
     def initialize(argv)
-      Settings.instance.verbose |= argv.flag?('verbose') ? true : false
-      initialize_sources(Config.new)
+      @settings = Settings.instance
+      
+      @settings.verbose |= argv.flag?('verbose') ? true : false
+      config = initialize_config
+      initialize_sources(config)
       initialize_output(argv)
       super
     end
     
+    def initialize_config
+      config = Config.new(@settings)
+      config.load
+      return config
+    end
+    
     def initialize_sources(config)
-      @sources = Sources.new(Settings.instance.sources_directory, config)
+      @sources = Sources.new(@settings.sources_directory, config)
     end
     
     def initialize_output(argv)
