@@ -29,7 +29,7 @@ module SoCli
       return if File.exist?(@settings.config_file)
       FileUtils::mkdir_p(@settings.config_directory)
       FileUtils::mkdir_p(@settings.sources_directory)
-      @sources = ["DEFAULT ACTIONS REPO GIT URL HERE!"]
+      @sources = ["git@github.com:fortinmike/so-cli-built-in-actions.git"]
       save
     end
   end
